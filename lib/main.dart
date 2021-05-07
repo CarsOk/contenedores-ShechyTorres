@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main(){
+  runApp(MyApp('Mi Proyecto'));
+  }
 
 
 class MyApp extends StatelessWidget{
+  String titulo;
+  MyApp(this.titulo);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AppProyect', 
+      title: this.titulo, 
       theme: ThemeData(primarySwatch: Colors.blue),
       home: HomePage(),
     );
