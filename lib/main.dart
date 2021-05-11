@@ -33,23 +33,26 @@ class HomePage extends StatelessWidget {
             const Image(
               image: NetworkImage('https://onoffsolutions.com.ar/wp-content/uploads/2020/11/Captura-de-Pantalla-2020-11-26-a-las-17.02.13.png'),
               height: 100,
-              width: 200),
-            Row(
+              width: 200,
+            ),
+              SizedBox(
+                height: 30.0,
+              ),
+            Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.ac_unit, size: 30.0, color: Colors.lightBlueAccent),
-                Icon(Icons.access_alarm, size: 30.0, color: Colors.yellow),
-                Icon(Icons.audiotrack, size: 30.0, color: Colors.blue),
-                Icon(Icons.favorite, size: 30.0, color: Colors.pink),
                 Image.asset(
-                  'imagen/facebook-icon.png',
-                  height: 30.0),
-                Image(
-                  image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1025px-Instagram-Icon.png'),
-                  height: 30.0),
-                Image(
-                  image: NetworkImage('https://png.pngtree.com/element_our/md/20180509/md_5af29f0b8bcfc.jpg'),
-                  height: 30.0),
-              ]),
+                  'assets/facebook-icon.png',
+                  height: 30.0,
+                ),
+                  SizedBox(
+                    width: 30.0,
+                  ),
+                Image.asset(
+                  'assets/instagram-icon.png',
+                  height: 30.0,
+                ),
+              ],
+            ),
           ],
         )));
   }
