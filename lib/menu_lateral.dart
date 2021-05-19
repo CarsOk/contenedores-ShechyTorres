@@ -21,7 +21,7 @@ class MenuLateral extends StatelessWidget {
             fit: BoxFit.cover),
           )),
           Ink(
-            color: Colors.deepOrangeAccent,
+            color: Colors.purple.shade300,
             child: ListTile(
               title: Text('Menu 1', style: TextStyle(color: Colors.white)),
               onTap: (){
