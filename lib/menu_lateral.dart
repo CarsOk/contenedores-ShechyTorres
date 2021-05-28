@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'barra_menu/menu_1.dart';
-import 'barra_menu/menu_2.dart';
-import 'barra_menu/menu_3.dart';
-import 'barra_menu/menu_4.dart';
+
+import 'barra_menu/1posteos.dart';
+import 'barra_menu/2comentariosBackend.dart';
+import 'barra_menu/3misComentarios.dart';
+import 'barra_menu/4fotosPerfil.dart';
+import 'barra_menu/5galeria.dart';
+import 'barra_menu/6postFormulario.dart';
+//import 'barra_menu/62comentarioPosteado.dart';
 
 
 class MenuLateral extends StatelessWidget {
@@ -23,50 +27,90 @@ class MenuLateral extends StatelessWidget {
           Ink(
             color: Colors.purple.shade300,
             child: ListTile(
-              title: Text('Menu 1', style: TextStyle(color: Colors.white)),
+              title: Text('Posteos', style: TextStyle(color: Colors.white)),
+              leading: Icon(Icons.post_add, color: Colors.pink),
               onTap: (){
                 Navigator.of(context).pop();
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (BuildContext context) => Menu1()
+                    builder: (BuildContext context) => Posteos()
                   )
                 );
               },
             ),
           ),
           ListTile(
-            title: Text('Menu 2'),
+            title: Text('Comentarios Backend'),
+            leading: Icon(Icons.comment, color: Colors.blue),
             onTap: (){
               Navigator.of(context).pop();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) => Menu2()
+                  builder: (BuildContext context) => ComentariosBackend()
                 )
               );
             },
           ),
           ListTile(
-            title: Text('Menu 3'),
+            title: Text('Mis Comentarios'),
+            leading: Icon(Icons.comment_outlined, color: Colors.blue),
             onTap: (){
               Navigator.of(context).pop();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) => Menu3()
+                  builder: (BuildContext context) => MisComentarios()
                 )
               );
             },
           ),
           ListTile(
-            title: Text('Menu 4'),
+            title: Text('Fotos Perfil/Comentario'),
+            leading: Icon(Icons.photo_album, color: Colors.red),
             onTap: (){
               Navigator.of(context).pop();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) => Menu4()
+                  builder: (BuildContext context) => FotosPerfil()
                 )
               );
             },
           ),
+          ListTile(
+            title: Text('Galeria'),
+            leading: Icon(Icons.photo_album_outlined, color: Colors.red),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => Galeria()
+                )
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Post Formulario'),
+            leading: Icon(Icons.post_add, color: Colors.green),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => PostFormulario()
+                )
+              );
+            },
+          ),
+          /* ListTile(
+            title: Text('Comentario Posteado'),
+            leading: Icon(Icons.post_add, color: Colors.greenAccent),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => ComentarioPosteado()
+                )
+              );
+            },
+          ), */
         ]
       )
     );
