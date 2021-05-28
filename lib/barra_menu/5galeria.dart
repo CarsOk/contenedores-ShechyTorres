@@ -1,4 +1,3 @@
-//import 'package:ejercicio1/models/3photos_model.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';

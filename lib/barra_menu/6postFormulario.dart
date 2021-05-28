@@ -6,7 +6,6 @@ import 'package:ejercicio1/barra_menu/62comentarioPosteado.dart';
 
 class PostFormulario extends StatelessWidget {
   const PostFormulario({Key key}) : super(key: key);
-  //TextEditingController controladorNombre = New TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +30,6 @@ class PostFormulario extends StatelessWidget {
 
                   if (comentario != null) {
                     print('Guardado ');
-                    /* final snackBar = SnackBar(content: Text('GUARDADO'));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar); */
                     Navigator.push(
                       context,
                       MaterialPageRoute(

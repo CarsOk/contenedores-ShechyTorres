@@ -2,6 +2,8 @@
 //
 //     final comentario = comentarioFromJson(jsonString);
 
+//borra esta linea
+
 import 'dart:convert';
 
 Comment comentarFromJson(String str) => Comment.fromJson(json.decode(str));

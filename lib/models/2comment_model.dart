@@ -2,6 +2,7 @@
 //
 //     final comentarios = comentariosFromJson(jsonString);
 
+// borra esta linea
 import 'dart:convert';
 
 List<Comment> commentFromJson(String str) => List<Comment>.from(json.decode(str).map((x) => Comment.fromJson(x)));

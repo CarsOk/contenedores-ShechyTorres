@@ -1,7 +1,6 @@
 import 'package:ejercicio1/my_home_page.dart';
 import 'package:flutter/material.dart';
 
-
 void main() => runApp(MyApp());
 
 

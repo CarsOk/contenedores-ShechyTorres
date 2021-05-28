@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:ejercicio1/models/3comment_model.dart';
 
-//import 'package:ejercicio1/models/2comment_model.dart';
-//import 'barra_menu/menu_6.dart';
 
 // ignore: must_be_immutable
 class ComentarioPosteado extends StatefulWidget {

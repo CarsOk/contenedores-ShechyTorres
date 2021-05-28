@@ -8,7 +8,6 @@ import 'barra_menu/5galeria.dart';
 import 'barra_menu/6postFormulario.dart';
 //import 'barra_menu/62comentarioPosteado.dart';
 
-
 class MenuLateral extends StatelessWidget {
   const MenuLateral({Key key}) : super(key: key);
 
