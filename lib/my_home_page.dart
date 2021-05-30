@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-//borra esto
 
 import 'menu_lateral.dart';
 

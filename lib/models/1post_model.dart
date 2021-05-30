@@ -1,5 +1,4 @@
 import 'dart:convert';
-//borra esto
 
 class Post {
   int userId;

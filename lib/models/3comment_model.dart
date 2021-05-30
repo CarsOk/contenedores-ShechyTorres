@@ -2,7 +2,6 @@
 //
 //     final comentario = comentarioFromJson(jsonString);
 
-//borra esta linea
 
 import 'dart:convert';
 
