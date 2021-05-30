@@ -5,7 +5,7 @@ import 'barra_menu/2comentariosBackend.dart';
 import 'barra_menu/3misComentarios.dart';
 import 'barra_menu/4fotosPerfil.dart';
 import 'barra_menu/5galeria.dart';
-import 'barra_menu/6postFormulario.dart';
+import 'barra_menu/6listaComentarios.dart';
 //import 'barra_menu/62comentarioPosteado.dart';
 
 class MenuLateral extends StatelessWidget {
@@ -93,7 +93,7 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) => PostFormulario()
+                  builder: (BuildContext context) => ListaComentarios()
                 )
               );
             },
