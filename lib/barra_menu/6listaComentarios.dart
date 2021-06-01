@@ -1,3 +1,4 @@
+import 'package:ejercicio1/barra_menu/61dentroComentario.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -6,6 +7,8 @@ import 'package:ejercicio1/barra_menu/62formulario.dart';
 
 class ListaComentarios extends StatefulWidget {
   ListaComentarios({Key key}) : super(key: key);
+  /* final Comment comment;
+  ListaComentarios(this.comment); */
 
   @override
   _ListaComentariosState createState() => _ListaComentariosState();
@@ -36,19 +39,16 @@ class _ListaComentariosState extends State<ListaComentarios> {
               builder: (BuildContext context) => Formulario()));
         },
       ),
-      body: SingleChildScrollView(
-        child: FutureBuilder<List<Comment>>(
-          future: obtenerComentarios(),
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Comment>> snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              List<Comment> comentarios = snapshot.data;
+      body: FutureBuilder<List<Comment>>(
+        future: obtenerComentarios(),
+        builder: (BuildContext context, AsyncSnapshot<List<Comment>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            List<Comment> comentarios = snapshot.data;
 
-              return construirListaComentarios(comentarios);
-            }
-            return Center(child: CircularProgressIndicator());
-          },
-        ),
+            return construirListaComentarios(comentarios);
+          }
+          return Center(child: CircularProgressIndicator());
+        },
       ),
     );
   }
@@ -61,9 +61,27 @@ class _ListaComentariosState extends State<ListaComentarios> {
         return Column(
           children: [
             ListTile(
-              title: Text(comment.email),
+              title: Text(
+                comment.email,
+                style: TextStyle(
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               leading: Icon(Icons.email, color: Colors.black),
               subtitle: Text(comment.id.toString()),
+              minLeadingWidth: 30.0,
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.arrow_forward, color: Colors.black),
+                ],
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => DentroComentario(comment),
+                ));
+              },
             ),
             Divider(),
           ],

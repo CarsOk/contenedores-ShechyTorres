@@ -56,7 +56,7 @@ class Posteos extends StatelessWidget {
   }
 
   Future<Post> getPost() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
+    final url = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
     final respuesta = await http.get(url);
 
     if (respuesta.statusCode == 200) {

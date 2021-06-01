@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-//import 'package:ejercicio1/barra_menu/6listaComentarios.dart';
-import 'package:ejercicio1/models/3comment_model.dart';
+import 'package:ejercicio1/models/2comment_model.dart';
 
-// ignore: must_be_immutable
-class ComentarioPosteado extends StatefulWidget {
-  final Comment2 comment;
-  ComentarioPosteado(this.comment);
+class DentroComentario extends StatelessWidget {
+  //const DentroComentario({Key key}) : super(key: key);
+  final Comment comment;
+  DentroComentario(this.comment);
 
-  @override
-  _ComentarioPosteadoState createState() => _ComentarioPosteadoState();
-}
-
-class _ComentarioPosteadoState extends State<ComentarioPosteado> {
   @override
   Widget build(BuildContext context) {
-    //var comment;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comentario',
-            style: TextStyle(
-              fontSize: 25.0,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () async {
+                final respuesta = await borrarComentario(comment.id);
+                if (respuesta) {
+                  print('Borrado Correctamente');
+                  Navigator.pop(context);
+                } else {
+                  print('Error al Borrar');
+                }
+              })
+        ],
+        title: Text('Información del Comentario',
+            style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         children: [
@@ -36,11 +40,11 @@ class _ComentarioPosteadoState extends State<ComentarioPosteado> {
               ),
             ),
             leading: Icon(
-              Icons.person_add_alt,
+              Icons.perm_identity,
               color: Colors.black,
             ),
             subtitle: Text(
-              widget.comment.postId,
+              comment.postId.toString(), style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           ListTile(
@@ -56,7 +60,7 @@ class _ComentarioPosteadoState extends State<ComentarioPosteado> {
               color: Colors.black,
             ),
             subtitle: Text(
-              widget.comment.name,
+              comment.name,
               style: TextStyle(
                 fontSize: 15.0,
                 fontWeight: FontWeight.bold,
@@ -77,7 +81,7 @@ class _ComentarioPosteadoState extends State<ComentarioPosteado> {
               color: Colors.black,
             ),
             subtitle: Text(
-              widget.comment.email,
+              comment.email,
               style: TextStyle(
                 fontSize: 15.0,
                 fontWeight: FontWeight.bold,
@@ -98,28 +102,26 @@ class _ComentarioPosteadoState extends State<ComentarioPosteado> {
               color: Colors.black,
             ),
             subtitle: Text(
-              widget.comment.body,
+              comment.body,
               style: TextStyle(
                 fontSize: 15.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(
-            height: 30.0,
-          ),
-          /* ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => ListaComentarios(),
-                ),
-              );
-            },
-            child: Text('Volver'),
-          ), */
         ],
       ),
     );
+  }
+
+  Future<bool> borrarComentario(int id) async {
+    final url = Uri.parse('https://jsonplaceholder.typicode.com/comments/$id');
+    final respuesta =await http.delete(url);
+    print('Response status: ${respuesta.statusCode}');
+    if (respuesta.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

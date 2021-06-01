@@ -1,3 +1,4 @@
+import 'package:ejercicio1/models/2comment_model.dart';
 import 'package:flutter/material.dart';
 
 import 'barra_menu/1posteos.dart';
@@ -93,8 +94,7 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (BuildContext context) => ListaComentarios()
-                )
+                  builder: (BuildContext context) => ListaComentarios()),
               );
             },
           ),

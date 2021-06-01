@@ -5,30 +5,44 @@ import 'package:ejercicio1/models/3comment_model.dart';
 import 'package:ejercicio1/barra_menu/63comentarioPosteado.dart';
 
 class Formulario extends StatelessWidget {
-  //const PostFormulario({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final comentarios = Comment(/* id: '1' */);
+    final comentarios = Comment2(id: '1');
 
     return Scaffold(
       appBar: AppBar(
-          title: Text('Formulario',
-          textAlign: TextAlign.center),
+        title: Text(
+          'Formulario',
+          style: TextStyle(
+            fontSize: 22.0,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.only(left: 15.0, right: 15.0),
           child: Column(
             children: [
-              Text('Digitar Información',
-                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+              Text(
+                'Digitar Información',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
               ),
-              /* TextField(
+              TextField(
+                autofocus: true,
                 keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: 'N° Id',
+                  border: OutlineInputBorder(),
+                ),
                 onChanged: (valor) => comentarios.postId = valor,
-              ), */
+              ),
               SizedBox(
                 height: 10.0,
               ),
@@ -45,6 +59,7 @@ class Formulario extends StatelessWidget {
                 height: 10.0,
               ),
               TextField(
+                autofocus: true,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   labelText: 'Correo',
@@ -56,6 +71,7 @@ class Formulario extends StatelessWidget {
                 height: 10.0,
               ),
               TextField(
+                autofocus: true,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 textCapitalization: TextCapitalization.sentences,
@@ -67,10 +83,11 @@ class Formulario extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () async {
-                    Comment comentario = await registrar(comentarios.toJson());
+                    Comment2 comentario = await registrar(comentarios.toJson());
 
                     if (comentario != null) {
                       print('Guardado ');
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -83,7 +100,7 @@ class Formulario extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     }
                   },
-                  child: Text('Guardar'))
+                  child: Text('Guardar')),
             ],
           ),
         ),
@@ -91,7 +108,7 @@ class Formulario extends StatelessWidget {
     );
   }
 
-  Future<Comment> registrar(Map<String, dynamic> datos) async {
+  Future<Comment2> registrar(Map<String, dynamic> datos) async {
     final url = Uri.parse('https://jsonplaceholder.typicode.com/comments');
     final respuesta = await http.post(url, body: datos);
     print('Response status: ${respuesta.statusCode}');
