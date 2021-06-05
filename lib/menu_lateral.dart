@@ -1,4 +1,3 @@
-import 'package:ejercicio1/models/2comment_model.dart';
 import 'package:flutter/material.dart';
 
 import 'barra_menu/1posteos.dart';
@@ -7,7 +6,6 @@ import 'barra_menu/3misComentarios.dart';
 import 'barra_menu/4fotosPerfil.dart';
 import 'barra_menu/5galeria.dart';
 import 'barra_menu/6listaComentarios.dart';
-//import 'barra_menu/62comentarioPosteado.dart';
 
 class MenuLateral extends StatelessWidget {
   const MenuLateral({Key key}) : super(key: key);
@@ -98,18 +96,6 @@ class MenuLateral extends StatelessWidget {
               );
             },
           ),
-          /* ListTile(
-            title: Text('Comentario Posteado'),
-            leading: Icon(Icons.post_add, color: Colors.greenAccent),
-            onTap: (){
-              Navigator.of(context).pop();
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => ComentarioPosteado()
-                )
-              );
-            },
-          ), */
         ]
       )
     );
