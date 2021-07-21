@@ -44,7 +44,8 @@ class DentroComentario extends StatelessWidget {
               color: Colors.black,
             ),
             subtitle: Text(
-              comment.postId.toString(), style: TextStyle(fontWeight: FontWeight.bold),
+              comment.id.toString(),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           ListTile(
@@ -115,8 +116,8 @@ class DentroComentario extends StatelessWidget {
   }
 
   Future<bool> borrarComentario(int id) async {
-    final url = Uri.parse('https://jsonplaceholder.typicode.com/comments/$id');
-    final respuesta =await http.delete(url);
+    final url = Uri.parse('http://bf12d21f1e5f.ngrok.io/comments/$id');
+    final respuesta = await http.delete(url);
     print('Response status: ${respuesta.statusCode}');
     if (respuesta.statusCode == 200) {
       return true;

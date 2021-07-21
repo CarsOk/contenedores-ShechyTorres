@@ -34,7 +34,7 @@ class Formulario extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              TextField(
+              /* TextField(
                 autofocus: true,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -42,7 +42,7 @@ class Formulario extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
                 onChanged: (valor) => comentarios.postId = valor,
-              ),
+              ), */
               SizedBox(
                 height: 10.0,
               ),
@@ -109,7 +109,7 @@ class Formulario extends StatelessWidget {
   }
 
   Future<Comment2> registrar(Map<String, dynamic> datos) async {
-    final url = Uri.parse('https://jsonplaceholder.typicode.com/comments');
+    final url = Uri.parse('http://bf12d21f1e5f.ngrok.io/comments');
     final respuesta = await http.post(url, body: datos);
     print('Response status: ${respuesta.statusCode}');
     //print('Response body: ${respuesta.body}');

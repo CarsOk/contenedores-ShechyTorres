@@ -40,7 +40,7 @@ class _ComentarioPosteadoState extends State<ComentarioPosteado> {
               color: Colors.black,
             ),
             subtitle: Text(
-              widget.comment.postId,
+              widget.comment.id,
             ),
           ),
           ListTile(

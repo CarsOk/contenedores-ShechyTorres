@@ -11,21 +11,21 @@ String comentarToJson(Comment2 data) => json.encode((data.toJson()));
 
 class Comment2 {
     Comment2({
-        this.postId,
+        //this.postId,
         this.id,
         this.name,
         this.email,
         this.body,
     });
 
-    String postId;
+    //String postId;
     String id;
     String name;
     String email;
     String body;
 
     factory Comment2.fromJson(Map<String, dynamic> json) => Comment2(
-        postId: json["postId"],
+        //postId: json["postId"],
         id: json["id"].toString(),
         name: json["name"],
         email: json["email"],
@@ -33,7 +33,7 @@ class Comment2 {
     );
 
     Map<String, dynamic> toJson() => {
-        "postId": postId,
+        //"postId": postId,
         "id": id,
         "name": name,
         "email": email,
