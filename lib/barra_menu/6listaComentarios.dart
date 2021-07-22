@@ -92,7 +92,7 @@ class _ListaComentariosState extends State<ListaComentarios> {
 }
 
 Future<List<Comment>> obtenerComentarios() async {
-  final url = Uri.parse('https://jsonplaceholder.typicode.com/comments');
+  final url = Uri.parse('https://carsok.github.io/contenedores-ShechyTorres/comments');
   final respuesta = await http.get(url);
 
   if (respuesta.statusCode == 200) {
