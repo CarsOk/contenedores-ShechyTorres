@@ -109,7 +109,7 @@ class Formulario extends StatelessWidget {
   }
 
   Future<Comment2> registrar(Map<String, dynamic> datos) async {
-    final url = Uri.parse('http://bf12d21f1e5f.ngrok.io/comments');
+    final url = Uri.parse('https://carsok.github.io/contenedores-ShechyTorres//comments');
     final respuesta = await http.post(url, body: datos);
     print('Response status: ${respuesta.statusCode}');
     //print('Response body: ${respuesta.body}');

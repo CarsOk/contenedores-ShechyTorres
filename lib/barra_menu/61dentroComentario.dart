@@ -116,7 +116,7 @@ class DentroComentario extends StatelessWidget {
   }
 
   Future<bool> borrarComentario(int id) async {
-    final url = Uri.parse('http://bf12d21f1e5f.ngrok.io/comments/$id');
+    final url = Uri.parse('https://carsok.github.io/contenedores-ShechyTorres//comments/$id');
     final respuesta = await http.delete(url);
     print('Response status: ${respuesta.statusCode}');
     if (respuesta.statusCode == 200) {
